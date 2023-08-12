@@ -1,3 +1,3 @@
 # Anime-database
 
-MY OWN ANIME DATABASE WITH SOME SQL QUERIES.
+Only created the tables.
