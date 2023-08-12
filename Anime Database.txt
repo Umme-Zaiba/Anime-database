@@ -1,0 +1,60 @@
+CREATE TABLE Anime (
+id INT PRIMARY KEY,
+name VARCHAR(100),
+genre VARCHAR(50),
+release_year INT,
+director VARCHAR(100),
+score FLOAT
+);
+
+CREATE TABLE Users (
+id INT PRIMARY KEY,
+username VARCHAR(50),
+email VARCHAR(100),
+password VARCHAR(50)
+);
+
+
+CREATE TABLE Reviews (
+id INT PRIMARY KEY,
+user_id INT,
+anime_id INT,
+review_text TEXT,
+rating INT,
+FOREIGN KEY (user_id) REFERENCES Users(id),
+FOREIGN KEY (anime_id) REFERENCES Anime(id)
+);
+
+
+CREATE TABLE Characters (
+id INT PRIMARY KEY,
+name VARCHAR(100),
+anime_id INT,
+FOREIGN KEY (anime_id) REFERENCES Anime(id)
+);
+
+
+CREATE TABLE Episodes (
+id INT PRIMARY KEY,
+anime_id INT,
+season_number INT,
+episode_number INT,
+episode_name VARCHAR(100),
+FOREIGN KEY (anime_id) REFERENCES Anime(id)
+);
+
+
+CREATE TABLE Studios (
+id INT PRIMARY KEY,
+name VARCHAR(100),
+location VARCHAR(100)
+);
+
+
+CREATE TABLE Staff (
+id INT PRIMARY KEY,
+name VARCHAR(100),
+role VARCHAR(100),
+anime_id INT,
+FOREIGN KEY (anime_id) REFERENCES Anime(id)
+);
